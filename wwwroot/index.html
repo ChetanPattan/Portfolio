@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chetan Pattan | .NET Backend &amp; API Engineer</title>
+    <meta name="description" content="Chetan Pattan — Software Engineer specializing in .NET, ASP.NET Core Web API and secure banking/fintech systems (LOS/LMS, JWT, RSA encryption)." />
+    <base href="/" />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="PortfolioBlazor.styles.css" />
+    <script src="js/site.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="boot-screen">
+            <div class="boot-card">
+                <p class="boot-mono">GET /portfolio</p>
+                <div class="boot-bar"><span></span></div>
+                <p class="boot-mono">status: <em>loading…</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script>
+        // Other half of the GitHub Pages SPA redirect trick (see 404.html):
+        // turns the mangled query string back into a real path before Blazor's
+        // router reads the URL. Harmless no-op on any other host.
+        (function (l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function (s) {
+                    return s.replace(/~and~/g, '&');
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location));
+    </script>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

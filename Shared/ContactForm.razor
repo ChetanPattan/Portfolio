@@ -1,0 +1,107 @@
+@inject HttpClient Http
+
+<EditForm Model="@model" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-field">
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="model.Name" placeholder="Your full name" />
+    </div>
+
+    <div class="form-field">
+        <label for="email">Email</label>
+        <InputText id="email" @bind-Value="model.Email" placeholder="you@example.com" />
+    </div>
+
+    <div class="form-field">
+        <label for="message">Message</label>
+        <InputTextArea id="message" @bind-Value="model.Message" rows="5" placeholder="What would you like to talk about?" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-submit @(status == FormStatus.Success ? "is-success" : "")" disabled="@isSending">
+        @if (isSending)
+        {
+            <span class="btn-spinner"></span> <span>Sending…</span>
+        }
+        else if (status == FormStatus.Success)
+        {
+            <span class="btn-check">✓</span> <span>Sent</span>
+        }
+        else
+        {
+            <span>Send message</span>
+        }
+    </button>
+
+    @if (status == FormStatus.Success)
+    {
+        <div class="form-status ok">Message sent — thanks! I'll reply within a day or two.</div>
+    }
+    else if (status == FormStatus.Error)
+    {
+        <div class="form-status err">Something went wrong. Please email me directly at chetanpattan01@gmail.com.</div>
+    }
+
+    <p class="form-note">
+        This form delivers straight to my email via Formspree — no data is stored on this site.
+    </p>
+</EditForm>
+
+@code {
+    private ContactModel model = new();
+    private bool isSending;
+    private FormStatus status = FormStatus.None;
+
+    private enum FormStatus { None, Success, Error }
+
+    // 1. Create a free form at https://formspree.io (50 submissions/month, no cost).
+    // 2. Replace YOUR_FORM_ID below with the ID Formspree gives you.
+    private const string FormspreeEndpoint = "https://formspree.io/f/mgoglgkr";
+
+    private async Task HandleSubmit()
+    {
+        isSending = true;
+        status = FormStatus.None;
+        try
+        {
+            var response = await Http.PostAsJsonAsync(FormspreeEndpoint, model);
+            status = response.IsSuccessStatusCode ? FormStatus.Success : FormStatus.Error;
+            if (status == FormStatus.Success)
+            {
+                model = new();
+            }
+        }
+        catch
+        {
+            status = FormStatus.Error;
+        }
+        finally
+        {
+            isSending = false;
+            if (status == FormStatus.Success)
+            {
+                _ = ResetButtonAfterDelay();
+            }
+        }
+    }
+
+    private async Task ResetButtonAfterDelay()
+    {
+        await Task.Delay(3500);
+        status = FormStatus.None;
+        StateHasChanged();
+    }
+
+    private class ContactModel
+    {
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Name { get; set; } = string.Empty;
+
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Message { get; set; } = string.Empty;
+    }
+}

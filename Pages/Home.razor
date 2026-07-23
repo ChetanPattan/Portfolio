@@ -1,0 +1,230 @@
+@page "/"
+@inject IJSRuntime JS
+
+<PageTitle>Chetan Pattan | .NET Backend &amp; API Engineer</PageTitle>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+    <div class="container">
+        <div>
+            <div class="hero-badge"><span class="dot"></span> Open to opportunities</div>
+            <h1>
+                <span id="heroName"></span><span class="type-cursor"></span>
+                <span class="role"><span id="heroRole"></span></span>
+            </h1>
+            <p class="hero-lede">
+                I build secure, high-performance backend systems for banking and fintech —
+                Loan Origination &amp; Loan Management platforms, authenticated APIs, and the
+                third-party integrations that keep them running in production.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="resume/ChetanPattan_Resume.pdf" target="_blank">
+                    ↓ Download Resume
+                </a>
+                <a class="btn btn-ghost" href="/#contact">Get in touch</a>
+            </div>
+            <div class="hero-meta">
+                <div><strong><span data-count-to="2" data-count-suffix="+">0+</span> yrs</strong>professional experience</div>
+                <div><strong><span data-count-to="10" data-count-suffix="+">0+</span></strong>third-party API integrations</div>
+                <div><strong>Banking</strong>&amp; fintech domain</div>
+            </div>
+        </div>
+
+        <!-- Signature element: the resume, served as an API. Each tab is a
+             real slice of the actual resume (profile, auth/security work,
+             and the LOS/LMS webhook integrations). -->
+        <div class="console-card">
+            <div class="console-bar">
+                <span class="console-dot"></span>
+                <span class="console-dot"></span>
+                <span class="console-dot"></span>
+                <span class="console-title">chetan-api.v1 — interactive session</span>
+            </div>
+            <div class="console-tabs" id="consoleTabs">
+                <button class="console-tab active" data-tab="0">GET /profile</button>
+                <button class="console-tab" data-tab="1">POST /security</button>
+                <button class="console-tab" data-tab="2">POST /integrations</button>
+            </div>
+            <div class="console-body">
+                <div class="req" id="consoleReq"></div>
+                <pre id="consoleJson"></pre>
+                <div class="console-status"><span class="dot"></span> <span id="consoleStatus"></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-tag"><span class="tag-bracket">{ 01 }</span> About</div>
+            <h2>Backend engineering, banking-grade</h2>
+        </div>
+        <div class="about-grid">
+            <div class="reveal">
+                <p>
+                    I'm a software engineer specializing in <strong style="color:#fff">.NET, ASP.NET Core Web API,
+                    ASP.NET MVC and Laravel</strong>, currently building enterprise Loan Origination (LOS) and Loan
+                    Management (LMS) systems for a subsidiary of State Bank of India.
+                </p>
+                <p>
+                    My day-to-day is integrating third-party financial APIs, securing endpoints with JWT
+                    authentication and RSA encryption, automating recurring operations with schedulers, and
+                    keeping production banking systems scalable and maintainable.
+                </p>
+                <p>
+                    I hold an M.Sc. in Computer Science from Ramnarain Ruia Autonomous College, Mumbai, and a
+                    B.Sc. in Computer Science from Ramniranjan Jhunjhunwala College, Mumbai.
+                </p>
+            </div>
+            <ul class="highlight-list reveal">
+                <li>Banking &amp; fintech domain experience across LOS/LMS platforms</li>
+                <li>Secure API integrations: Karza, Accumn, CRIF, Cygnet, Doqfy, YONO Banking, SBI Payments</li>
+                <li>Authentication, encryption, automation &amp; IP-whitelisting expertise</li>
+                <li>Hands-on with production support, enhancements &amp; scalable deployments</li>
+                <li>Comfortable in client-facing and stakeholder coordination roles</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section class="section" id="skills">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-tag"><span class="tag-bracket">{ 02 }</span> Skills</div>
+            <h2>Technical toolkit</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <h3>Backend</h3>
+                <div class="skill-tags">
+                    <span>C#</span><span>ASP.NET</span><span>ASP.NET MVC</span>
+                    <span>ASP.NET Core MVC</span><span>Web Forms</span><span>Web API</span><span>Laravel</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Security</h3>
+                <div class="skill-tags">
+                    <span>JWT Authentication</span><span>RSA Encryption</span>
+                    <span>Token Authorization</span><span>IP Whitelisting</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Data</h3>
+                <div class="skill-tags">
+                    <span>MS SQL Server</span><span>MySQL</span><span>Stored Procedures</span>
+                    <span>Entity Framework</span><span>ADO.NET</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Frontend</h3>
+                <div class="skill-tags">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                    <span>Bootstrap</span><span>jQuery</span><span>AJAX</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Tools</h3>
+                <div class="skill-tags">
+                    <span>Git</span><span>IIS</span><span>Visual Studio</span>
+                    <span>VS Code</span><span>Postman</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h3>Integrations</h3>
+                <div class="skill-tags integrations">
+                    <span>Karza</span><span>Accumn</span><span>CRIF</span>
+                    <span>Cygnet</span><span>Doqfy</span><span>YONO</span>
+                    <span>M1xchange</span><span>InvoiceMart</span><span>RXIL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section class="section" id="experience">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-tag"><span class="tag-bracket">{ 03 }</span> Experience</div>
+            <h2>Where I've worked</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal" data-index="1">
+                <div class="timeline-role">
+                    <h3>Software Engineer — .NET Developer</h3>
+                    <span class="timeline-dates">May 2024 – Present</span>
+                </div>
+                <div class="timeline-org">Krtiva Technologies Pvt. Ltd. · Client: SBI Factors Pvt. Ltd. (State Bank of India subsidiary)</div>
+                <ul>
+                    <li>Developing and integrating enterprise LOS &amp; LMS applications for banking solutions.</li>
+                    <li>Integrated third-party APIs: Karza, Accumn, CRIF, Cygnet, Doqfy, YONO Banking, SBI Payment APIs.</li>
+                    <li>Built secure .NET 6/9 Web APIs with JWT authentication, RSA encryption &amp; token-based authorization.</li>
+                    <li>Automated recurring operations with .NET 9 schedulers, cutting manual intervention significantly.</li>
+                    <li>Maintained secure webhook services for real-time exchange with M1xchange, InvoiceMart &amp; RXIL.</li>
+                    <li>Coordinated with infra/networking teams on IP-whitelisted secure API channels across UAT &amp; Production.</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal" data-index="2">
+                <div class="timeline-role">
+                    <h3>Junior Software Developer</h3>
+                    <span class="timeline-dates">Oct 2023 – Mar 2024</span>
+                </div>
+                <div class="timeline-org">Digital Edge Technologies Pvt. Ltd.</div>
+                <ul>
+                    <li>Built and maintained E-commerce &amp; ERP applications using ASP.NET MVC and Web Forms.</li>
+                    <li>Developed backend logic, APIs &amp; database operations with C#, ADO.NET and MS SQL Server.</li>
+                    <li>Implemented frontend features with HTML, CSS, JavaScript, Bootstrap, jQuery &amp; AJAX.</li>
+                    <li>Worked directly with clients to gather requirements and ship technical solutions.</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal" data-index="3">
+                <div class="timeline-role">
+                    <h3>ASP.NET Developer Intern</h3>
+                    <span class="timeline-dates">Jan 2023 – Jun 2023</span>
+                </div>
+                <div class="timeline-org">IGS Recruiting Solution</div>
+                <ul>
+                    <li>Developed frontend and backend modules using ASP.NET technologies.</li>
+                    <li>Collaborated cross-functionally on requirement gathering and project documentation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-tag"><span class="tag-bracket">{ 04 }</span> Contact</div>
+            <h2>Let's work together</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <p style="color:var(--text-muted)">
+                    Open to full-time .NET / backend engineering roles. The fastest way to reach me is
+                    email or phone — or use the form and it'll land straight in my inbox.
+                </p>
+                <div class="contact-row"><span class="k">Email</span> <a href="mailto:chetanpattan01@gmail.com">chetanpattan01@gmail.com</a></div>
+                <div class="contact-row"><span class="k">Phone</span> <a href="tel:+919969193562">+91 99691 93562</a></div>
+                <div class="contact-row"><span class="k">Phone</span> <a href="tel:+918850653487">+91 88506 53487</a></div>
+                <div class="contact-row"><span class="k">Location</span> Mumbai, India</div>
+            </div>
+
+            <ContactForm />
+        </div>
+    </div>
+</section>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("portfolioAnimations.initAll");
+        }
+    }
+}

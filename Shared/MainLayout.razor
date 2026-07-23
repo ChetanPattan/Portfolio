@@ -1,0 +1,35 @@
+@inherits LayoutComponentBase
+
+<nav class="nav @(navOpen ? "open" : "")" id="siteNav">
+    <div class="container">
+        <a href="/" class="nav-brand">
+            <span class="nav-brand-mark">
+                <span class="brace">{<span>CP</span>}</span>
+            </span>
+            <span class="nav-brand-text">chetan<em>.developer</em><span class="brand-cursor">_</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="resume/ChetanPattan_Resume.pdf" target="_blank">Resume</a></li>
+        </ul>
+        <button class="nav-toggle" @onclick="ToggleNav" aria-label="Toggle navigation">☰</button>
+    </div>
+</nav>
+
+<main>
+    @Body
+</main>
+
+<footer class="footer">
+    <div class="container">
+        © @DateTime.Now.Year Chetan Pattan · Built with Blazor WebAssembly · Mumbai, India
+    </div>
+</footer>
+
+@code {
+    private bool navOpen;
+    private void ToggleNav() => navOpen = !navOpen;
+}
