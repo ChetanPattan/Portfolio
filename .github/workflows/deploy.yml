@@ -1,42 +1,3 @@
-# name: Build and deploy to GitHub Pages
-
-# on:
-#   push:
-#     branches: [ main ]
-#   workflow_dispatch:
-
-# permissions:
-#   contents: write
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Setup .NET
-#         uses: actions/setup-dotnet@v4
-#         with:
-#           dotnet-version: '9.0.x'
-
-#       - name: Publish
-#         run: dotnet publish PortfolioBlazor.csproj -c Release -o release --nologo
-
-#       # GitHub Pages serves a *project* site at /<repo-name>/, so the
-#       # <base href> baked into index.html at publish time must match.
-#       - name: Rewrite base href for GitHub Pages
-#         run: |
-#           sed -i 's|<base href="/" />|<base href="/${{ github.event.repository.name }}/" />|g' release/wwwroot/index.html
-
-#       - name: Add .nojekyll
-#         run: touch release/wwwroot/.nojekyll
-
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v4
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: release/wwwroot
-#           publish_branch: gh-pages
 name: Build and deploy to GitHub Pages
 
 on:
@@ -61,11 +22,16 @@ jobs:
       - name: Publish
         run: dotnet publish PortfolioBlazor.csproj -c Release -o release --nologo
 
-      # Copy index.html to 404.html so GitHub Pages handles Blazor routing without 404 errors
+      # Set correct base href for subfolder repository (/Portfolio/)
+      - name: Rewrite base href for GitHub Pages
+        run: |
+          sed -i 's|<base href="/" />|<base href="/Portfolio/" />|g' release/wwwroot/index.html
+
+      # Copy index.html to 404.html so GitHub Pages handles Blazor WASM routing without 404 errors
       - name: Copy index.html to 404.html
         run: cp release/wwwroot/index.html release/wwwroot/404.html
 
-      # Prevents GitHub Pages from ignoring files that start with an underscore (like Blazor framework files)
+      # Prevents GitHub Pages from ignoring files that start with an underscore (_framework)
       - name: Add .nojekyll
         run: touch release/wwwroot/.nojekyll
 
