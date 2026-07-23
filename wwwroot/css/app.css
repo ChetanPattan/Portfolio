@@ -137,8 +137,9 @@ textarea:focus-visible {
 }
 
 .section {
-  padding: 96px 0;
-  border-bottom: 1px solid var(--line);
+    padding: 96px 0;
+    /*  border-bottom: 1px solid var(--line);*/
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Dark subtle border matching your dark theme */
 }
 .section:last-of-type { border-bottom: none; }
 
