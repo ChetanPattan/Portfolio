@@ -115,7 +115,7 @@ window.portfolioAnimations = {
             {
                 req: 'GET /api/v1/profile',
                 status: 'verified · open to work',
-                json: '{\n  "name": "Chetan Pattan",\n  "role": "Software Engineer — .NET / Backend Developer",\n  "company": "Krtiva Technologies",\n  "client": "SBI Factors (SBI subsidiary)",\n  "experience_years": 2,\n  "stack": ["ASP.NET Core", "C#", "Laravel", "SQL Server", "Oracle", "EF Core"],\n  "open_to_work": true\n}'
+                json: '{\n  "name": "Chetan Pattan",\n  "role": "Software Engineer — .NET / Backend Developer",\n  "company": "Krtiva Technologies",\n  "client": "SBI Factors (SBI subsidiary)",\n  "experience_years": 2.7,\n  "stack": ["ASP.NET Core", "C#", "Laravel", "SQL Server", "Oracle", "EF Core"],\n  "open_to_work": true\n}'
             },
             {
                 req: 'POST /api/v1/auth/secure-token',
