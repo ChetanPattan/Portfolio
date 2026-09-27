@@ -115,7 +115,7 @@ window.portfolioAnimations = {
             {
                 req: 'GET /api/v1/profile',
                 status: 'verified · open to work',
-                json: '{\n  "name": "Chetan Pattan",\n  "role": "Software Engineer — .NET / Backend Developer",\n  "company": "Krtiva Technologies",\n  "client": "SBI Factors (SBI subsidiary)",\n  "experience_years": 2.7,\n  "stack": ["ASP.NET Core", "C#", "Laravel", "SQL Server", "Oracle", "EF Core"],\n  "open_to_work": true\n}'
+                json: '{\n  "name": "Chetan Pattan",\n  "role": "Software Engineer — .NET / Backend Developer",\n  "company": "Krtiva Technologies",\n  "client": "SBI Factors (SBI subsidiary)",\n  "experience_years": 3,\n  "stack": ["ASP.NET Core", "C#", "Laravel", "SQL Server", "Oracle", "EF Core"],\n  "open_to_work": true\n}'
             },
             {
                 req: 'POST /api/v1/auth/secure-token',
@@ -235,3 +235,27 @@ window.portfolioAnimations = {
         this.initButtonRipple();
     }
 };
+
+
+function openCertModal(imageSrc) {
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('certModalImg');
+    if (modal && modalImg) {
+        modalImg.src = imageSrc;
+        modal.style.display = 'flex';
+    }
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Close modal when pressing ESC key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeCertModal();
+    }
+});
