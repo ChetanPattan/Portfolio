@@ -29,7 +29,7 @@ for free as static files.
      private const string FormspreeEndpoint = "https://formspree.io/f/YOUR_FORM_ID";
      ```
      with your real endpoint.
-2. **Resume file** — `wwwroot/resume/ChetanPattan_Resume.pdf` is already your
+2. **Resume file** — `wwwroot/resume/Resume_Chetan_Pattan.pdf` is already your
    uploaded resume. Replace this file any time you update your resume, keeping
    the same filename (or update the link in `Pages/Home.razor` if you rename it).
 
